@@ -1,0 +1,18 @@
+.section {
+    margin-bottom: 16px;
+}
+
+::ng-deep.mat-menu-panel {
+    min-height: auto !important;
+}
+
+::ng-deep.mat-menu-content {
+    padding: 0px !important;
+}
+
+.menu-item {
+    height: 36px;
+    padding: 0px 12px;
+    display: flex;
+    align-items: center;
+}

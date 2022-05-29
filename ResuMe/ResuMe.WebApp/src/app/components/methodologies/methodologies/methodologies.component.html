@@ -1,0 +1,46 @@
+<div class="section">
+    <div class="section-header">
+        <h3 class="section-title">Methodologies</h3>
+
+        <button mat-icon-button color="primary" (click)="add()" *ngIf="currentUser">
+            <mat-icon> add_circle_outline</mat-icon>
+        </button>
+
+    </div>
+
+    <table class="custom-table">
+
+        <tbody>
+            <tr *ngFor="let methodology of methodologies" (contextmenu)="onContextMenu($event, methodology)">
+                <td>
+                    {{methodology.description}}
+                </td>
+
+                <div style="visibility: hidden; position: fixed;" [style.left]="contextMenuPosition.x" [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="menu">
+                </div>
+
+                <mat-menu #menu="matMenu">
+                    <ng-template matMenuContent let-item="item">
+                        <button mat-menu-item (click)="edit(item)" class="menu-item">
+                            <mat-icon>edit </mat-icon>
+                            <span>Edit</span>
+                        </button>
+                        <button mat-menu-item (click)="delete(item)" class="menu-item">
+                            <mat-icon>delete</mat-icon>
+                            <span>Delete</span>
+                        </button>
+                    </ng-template>
+
+                </mat-menu>
+
+
+
+                <td class="text-end">
+                    {{methodology.level | level}}
+                </td>
+
+
+            </tr>
+
+        </tbody>
+    </table>

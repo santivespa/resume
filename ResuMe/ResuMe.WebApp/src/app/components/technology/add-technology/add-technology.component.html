@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>{{newTechnology?'Add':'Edit'}} technology</h1>
+<form role="form" (ngSubmit)="onSubmit()">
+
+
+    <div mat-dialog-content>
+
+        <div>
+            <input type="text" placeholder="description" class="custom-input input" name="description" [(ngModel)]="technology.description">
+        </div>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" name="level" [(ngModel)]="technology.level">
+            <mat-radio-button class="example-radio-button" *ngFor="let level of levels" [value]="level.value">
+                {{level.text}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div mat-dialog-actions class="justify-content-between">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button cdkFocusInitial type="submit" [disabled]="!valid() || loading" [class.spinner]="loading">{{newTechnology?'Add':'Save'}}</button>
+    </div>
+
+
+</form>

@@ -1,0 +1,85 @@
+<form role="form" class="row" (ngSubmit)="onSubmit()">
+
+
+    <div class="col-12 col-sm-12 col-md-12">
+        <div class="div-img-profile">
+            <div class="img-profile border rounded">
+                <img *ngIf="user && !imageBase64 && !imageBase64Selected && user.profileImage" [src]="user.profileImage" />
+
+                <img *ngIf="imageBase64 && !imageBase64Selected" [src]="imageBase64" />
+                <img *ngIf="imageBase64Selected" [src]="imageBase64Selected" />
+
+                <button mat-mini-fab color="warn" type="button" class="example-icon btn-crop" (click)="cropSelectedImage()" *ngIf="imageBase64Selected" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <mat-icon>crop_free</mat-icon>
+                    </button>
+            </div>
+
+            <input accept="image/*" type="file" #hiddenfileinput style="display: none;" (change)="handleUpload($event)">
+
+            <button mat-stroked-button color="primary" class="btn-select-photo" type="button" (click)="hiddenfileinput.click()">
+                       <mat-icon>file_upload</mat-icon>
+                    </button>
+
+        </div>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-12">
+        <div>
+            <label class="fw-500">Email</label>
+            <input type="text" id="email" disabled placeholder="Email" class="custom-input input" name="email" [(ngModel)]="user.email">
+        </div>
+
+        <div class="mt-6px">
+            <label for="userName" class="fw-500">User Name</label>
+            <input type="text" id="userName" [disabled]="loadingProfile" placeholder="User Name" class="custom-input input" name="userName" [(ngModel)]="user.userName">
+        </div>
+
+        <div class="mt-6px">
+            <label for="fullName" class="fw-500">Full Name</label>
+            <input type="text" id="fullName" [disabled]="loadingProfile" placeholder="Full Name" class="custom-input input" name="fullName" [(ngModel)]="user.fullName">
+        </div>
+
+        <div class="mt-6px">
+            <label for="linkedin" class="fw-500">LinkedIn</label>
+            <input type="text" id="linkedin" [disabled]="loadingProfile" placeholder="LinkedIn" class="custom-input input" name="linkedin" [(ngModel)]="user.linkedin">
+        </div>
+        <div class="mt-6px">
+            <label for="fullName" class="fw-500">Role</label>
+            <input type="text" id="fullName" [disabled]="loadingProfile" placeholder="Role" class="custom-input input" name="role" [(ngModel)]="user.role">
+        </div>
+        <div class="mt-6px">
+            <label for="linkedin" class="fw-500">Birthdate</label>
+            <input type="date" id="linkedin" [disabled]="loadingProfile" placeholder="Birthdate" class="custom-input input" name="birthdate" [(ngModel)]="user.birthdate">
+        </div>
+        <div class="mt-6px">
+            <label for="linkedin" class="fw-500">Years of Experience</label>
+            <input type="text" id="linkedin" [disabled]="loadingProfile" placeholder="Years of Experience" class="custom-input input" name="yearsOfExperience" [(ngModel)]="user.yearsOfExperience">
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-end mt-2">
+        <button mat-stroked-button color="primary" type="submit" [disabled]="!valid() || loading || loadingProfile" [class.spinner]="loading">Save changes</button>
+
+    </div>
+</form>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body" style="display:flex;justify-content: center;">
+                <div class="img-container">
+                    <img id="imageReadyForCropping" src="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button mat-button type="button" data-bs-dismiss="modal">Cancel</button>
+                <button mat-button cdkFocusInitial type="button" data-bs-dismiss="modal" (click)="cropImage()">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+.user-fullName,
+.user-role {
+    font-weight: 500;
+}
+
+.user-role {
+    color: rgb(109, 158, 235)
+}
+
+.user-email {
+    color: grey;
+    font-size: 14px;
+}
+
+.header {
+    border-bottom: 2px solid #eeeeee;
+    margin-bottom: 12px !important;
+    padding: 0px 12px 12px 12px;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-button {
+    color: gray;
+    margin-left: 6px;
+}
+
+.profile-image {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
+.main-div {
+    background-color: #fff;
+    border-radius: 40px;
+    min-height: 400px;
+    -webkit-box-shadow: 0 0 40px -10px rgb(0 0 0 / 20%);
+    -moz-box-shadow: 0 0 40px -10px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 40px -10px rgb(0 0 0 / 20%);
+    padding: 20px;
+    padding-bottom: 36px;
+    margin-top: -70px;
+}
+
+.nav-menu-mobile {
+    display: none;
+}
+
+//
+.header-div {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-end;
+    //border-radius: 40px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 16px 32px;
+    height: 112px;
+}
+
+//
+.header-div div {
+    height: 26px;
+    flex-direction: inherit;
+}
+
+@media (max-width: 768px) {
+    .main-div {
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 24px;
+        border-radius: 0px;
+        margin-top: -70px;
+    }
+    .header-div {
+        margin-top: 0px;
+        border-radius: 0px;
+    }
+    .nav-button {
+        display: none;
+    }
+    .nav-menu-mobile {
+        display: block;
+    }
+    .header-subdiv {
+        flex-direction: column;
+    }
+    .user-years {
+        align-self: auto !important;
+        margin-left: 0px !important;
+    }
+    .subheader-nav {
+        align-self: flex-start;
+    }
+    .profile-image {
+        height: 42px;
+        width: 42px;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+::ng-deep .space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+::ng-deep .align-items-center {
+    display: flex;
+    align-items: center;
+}
+
+.padding-16 {
+    padding: 16px;
+}
+
+
+
+.linkedin-link {
+    color: rgb(10, 102, 194);
+    cursor: pointer;
+    margin-right: 6px;
+    text-decoration: none;
+}
+
+.user-years {
+    color: grey;
+    margin-left: 8px;
+    font-size: 15px;
+    align-self: center;
+}

@@ -1,0 +1,22 @@
+<div class="row m-0 " style="margin-top: 14px !important;">
+    <div class="col-12 col-md-12 m-0">
+        <form role="form" (ngSubmit)="onSubmit()">
+
+            <div mat-dialog-content>
+                <div>
+
+                    <input type="password" placeholder="Enter your password" class="custom-input input" name="password" [(ngModel)]="password">
+                </div>
+
+                <div>
+                    <mat-checkbox name="confirmDelete" [(ngModel)]="confirmDelete">I am sure to delete my account</mat-checkbox>
+
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end mt-2">
+                <button mat-stroked-button color="warn" type="submit" [disabled]="!valid() || loading" [class.spinner]="loading">Delete account</button>
+            </div>
+        </form>
+    </div>
+</div>

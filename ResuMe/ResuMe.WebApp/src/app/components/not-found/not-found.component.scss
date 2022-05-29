@@ -1,0 +1,26 @@
+h1 {
+    color: white;
+    font-size: 64px;
+    font-family: poppins, Helvetica, sans-serif;
+}
+
+.div-404 {
+    padding: 36px 64px;
+    border-radius: 40px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.default-a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: poppins, Helvetica, sans-serif;
+    outline: 0;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.default-a:hover {
+    color: #d1e3ff
+}

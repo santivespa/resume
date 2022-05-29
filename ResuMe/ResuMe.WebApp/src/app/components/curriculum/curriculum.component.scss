@@ -1,0 +1,61 @@
+.section-btns {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    .section-btns::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.section-btn {
+    height: 32px !important;
+    white-space: nowrap;
+}
+
+.fading {
+    animation: fading 1.5s infinite;
+    -webkit-animation: fading 1.5s infinite;
+    border-radius: 25px;
+}
+
+.fading-section-btn {
+    width: 80px;
+    height: 32px;
+    margin-left: 8px;
+}
+
+.fading-section-btn2 {
+    width: 108px;
+    height: 32px;
+    margin-left: 8px;
+}
+
+.fading-section {
+    height: 150px;
+    margin-bottom: 16px;
+}
+
+.fading-section2 {
+    height: 100px;
+    margin-bottom: 16px;
+}
+
+.fading-section3 {
+    height: 200px;
+    margin-bottom: 16px;
+}
+
+@keyframes fading {
+    0% {
+        background-color: #B9BABC;
+    }
+    50% {
+        background-color: #EAEAEA;
+    }
+    100% {
+        background-color: #B9BABC;
+    }
+}

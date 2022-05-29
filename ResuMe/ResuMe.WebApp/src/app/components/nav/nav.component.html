@@ -1,0 +1,31 @@
+<div class="col-12 header-div">
+    <div class="d-flex">
+    
+        <a class="header-btn cursor-pointer d-flex" [matMenuTriggerFor]="menu" *ngIf="isSigned">
+            {{userName}}
+            
+            <mat-icon aria-hidden="false" class="ms-2 user-icon" aria-label="Example home icon">account_circle</mat-icon>
+
+        </a>
+        <mat-menu #menu="matMenu">
+         
+            <button mat-menu-item routerLink="/{{userName}}">
+                <mat-icon>home</mat-icon>
+                My Profile
+            </button>
+            <button mat-menu-item routerLink="/{{userName}}/account/settings">
+                <mat-icon>settings</mat-icon>
+                Settings
+            </button>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                Log out
+            </button>
+        </mat-menu>
+        
+
+        <a routerLink="/login" class="header-btn" *ngIf="!isSigned">Login</a>
+        <a routerLink="/register" class="header-btn" *ngIf="!isSigned">Register</a>
+    </div>
+
+</div>

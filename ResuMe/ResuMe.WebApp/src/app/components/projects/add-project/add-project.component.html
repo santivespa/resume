@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Add project</h1>
+
+<form role="form" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content>
+        <div class="row m-0 p-0">
+            <div class="col-12 col-sm-6 p-xs-0 ps-0">
+                <input type="text" placeholder="Project Name" class="custom-input input" name="projectName" [(ngModel)]="project.projectName">
+            </div>
+            <div class="col-12 col-sm-6 p-xs-0 pe-0">
+                <input type="text" placeholder="Client" class="custom-input input" name="client" [(ngModel)]="project.client">
+            </div>
+
+            <div class="col-12 col-sm-6 p-xs-0 ps-0">
+                <input type="text" placeholder="Dedication" class="custom-input input" name="dedication" [(ngModel)]="project.dedication">
+            </div>
+
+            <div class="col-12 col-sm-6 p-xs-0 pe-0">
+                <input type="text" placeholder="Business Line" class="custom-input input" name="businessLine" [(ngModel)]="project.businessLine">
+            </div>
+
+
+        </div>
+
+
+        <div class="d-flex">
+            <textarea matInput class="w-100 custom-input input textarea" placeholder="Project description..." name="description" [(ngModel)]="project.description" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="7"></textarea>
+        </div>
+
+        <div>
+            <input type="text" placeholder="Role" class="custom-input input" name="role" [(ngModel)]="project.role">
+        </div>
+        <div class="d-flex">
+            <textarea matInput class="w-100 custom-input input textarea" placeholder="Tech stack..." name="techStack" [(ngModel)]="project.techStack" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="7"></textarea>
+        </div>
+        <div>
+            <input type="text" placeholder="Location" class="custom-input input" name="location" [(ngModel)]="project.location">
+        </div>
+    </div>
+    <div mat-dialog-actions class="justify-content-between">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button type="submit" [disabled]="!valid() || loading" [class.spinner]="loading">Add</button>
+    </div>
+</form>

@@ -1,0 +1,54 @@
+.input {
+    margin-bottom: 8px;
+}
+
+.mt-6px {
+    margin-top: 6px;
+}
+
+.div-img-profile {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-profile {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-style: none !important;
+}
+
+.img-profile>img {
+    width: 100% !important;
+    align-self: center;
+}
+
+.btn-save-photo {
+    width: 250px;
+}
+
+img {
+    display: block;
+    /* This rule is very important, please don't ignore this */
+    max-width: 100%;
+}
+
+.img-container img {
+    max-width: 100%;
+}
+
+.btn-crop {
+    position: absolute;
+    margin: 8px;
+}
+
+.btn-select-photo {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}

@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{newLanguage?'Add':'Edit'}} language</h1>
+<form role="form" (ngSubmit)="onSubmit()">
+
+
+    <div mat-dialog-content>
+
+
+        <div>
+            <input type="text" placeholder="name" class="custom-input input" name="languageName" [(ngModel)]="language.languageName">
+        </div>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" name="nivel" [(ngModel)]="language.nivel">
+            <mat-radio-button class="example-radio-button" *ngFor="let nivel of nivels" [value]="nivel.value">
+                {{nivel.text}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div mat-dialog-actions class="justify-content-between">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button cdkFocusInitial type="submit" [disabled]="!validLanguage() || loading" [class.spinner]="loading">{{newLanguage?'Add':'Save'}}</button>
+    </div>
+
+
+</form>

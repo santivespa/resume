@@ -1,0 +1,57 @@
+<div *ngIf="!loading">
+    <div class="section-btns">
+        <button class="section-btn" [class.active]="currentView == getViews.skills" (click)="currentView = getViews.skills">Skills</button>
+        <button class="section-btn" [class.active]="currentView == getViews.projects" (click)="currentView = getViews.projects">Projects</button>
+        <button class="section-btn" [class.active]="currentView == getViews.careerPath" (click)="currentView = getViews.careerPath">Career path</button>
+        <button class="section-btn" [class.active]="currentView == getViews.education" (click)="currentView = getViews.education">Education</button>
+
+    </div>
+
+    <div class="row col-12 m-0" *ngIf="curriculum && currentView == getViews.skills">
+
+        <div class="col-md-8">
+            <technologies [technologies]="curriculum.technologies" [currentUser]="currentUser"></technologies>
+            <tools [tools]="curriculum.tools" [currentUser]="currentUser"></tools>
+            <methodologies [methodologies]="curriculum.methodologies" [currentUser]="currentUser"></methodologies>
+        </div>
+        <div class="col-md-4">
+            <languages [languages]="curriculum.languages" [currentUser]="currentUser"></languages>
+        </div>
+    </div>
+
+    <div class="row col-12 m-0" *ngIf="curriculum && currentView == getViews.projects">
+        <projects [projects]="curriculum.projects" [currentUser]="currentUser"></projects>
+    </div>
+
+
+    <div class="row col-12 m-0" *ngIf="curriculum && currentView == getViews.careerPath">
+        <career-path [careerPaths]="curriculum.careerPath" [currentUser]="currentUser"></career-path>
+    </div>
+
+    <div class="row col-12 m-0" *ngIf="curriculum && currentView == getViews.education">
+        <education [educations]="curriculum.educations" [currentUser]="currentUser"></education>
+    </div>
+</div>
+
+<div *ngIf="loading">
+    <div style="margin-bottom: 12px;" class="d-flex">
+
+        <div class="fading-section-btn fading"></div>
+        <div class="fading-section-btn2 fading"></div>
+
+    </div>
+
+    <div class="row col-12 m-0">
+
+        <div class="col-md-8 ">
+            <div class="fading-section fading"></div>
+            <div class="fading-section fading"></div>
+
+        </div>
+        <div class="col-md-4 ">
+            <div class="fading-section2 fading"></div>
+            <div class="fading-section3 fading"></div>
+
+        </div>
+    </div>
+</div>

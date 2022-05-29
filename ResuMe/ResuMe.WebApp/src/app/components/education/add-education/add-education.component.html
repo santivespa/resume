@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{newEducation?'Add':'Edit'}} Education</h1>
+<form role="form" (ngSubmit)="onSubmit()">
+
+    <div mat-dialog-content>
+        <div>
+            <input type="text" placeholder="Title" class="custom-input input" name="title" [(ngModel)]="education.title">
+        </div>
+
+        <div>
+            <input type="text" placeholder="Institution" class="custom-input input" name="institution" [(ngModel)]="education.institution">
+        </div>
+
+        <div>
+            <input type="text" placeholder="Period" class="custom-input input" name="period" [(ngModel)]="education.period">
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="justify-content-between">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button cdkFocusInitial type="submit" [disabled]="!valid() || loading" [class.spinner]="loading">{{newEducation?'Add':'Save'}}</button>
+    </div>
+
+</form>

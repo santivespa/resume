@@ -1,0 +1,53 @@
+<div class="row col-12 m-0 p-0 justify-content-center">
+    <div class="main-div justify-center col-12 col-md-8 col-lg-4">
+
+        <div class="form-div">
+            <h3 class="margin-bot-16">Login</h3>
+            <form role="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="w-100 justify-center">
+                    <input type="text" class="default-input" formControlName="emailOrName" name="emailOrName" placeholder="Email or User name">
+
+                </div>
+                <div class="w-100 justify-center">
+                    <input type="password" class="default-input" formControlName="password" name="password" placeholder="Password" #inputPass autocomplete="false">
+
+                </div>
+
+                <div class="w-100  space-between row-reverse">
+
+                    <button class="default-btn m-0" type="submit" [class.spinner]="loading" [disabled]="loading">Log in</button>
+
+                </div>
+                <hr>
+
+                <div class="d-flex flex-column">
+                    <a class="default-anchor" routerLink="/forgot-password{{form.value.userName?('/'+form.value.userName):''}}">Forgot password</a>
+
+                    <a class="default-anchor" routerLink="/register">Register</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="text-center">
+        <p class="m-0 mt-2 white-blue-text">
+            1.0.0    
+        </p>
+
+        <p class="m-0 mt-2 white-blue-text">
+            Developed by 
+            <a href="https://www.linkedin.com/in/santiago-vespa-gutierrez-991bb518b/" target="_blank">
+                Santiago Vespa
+            </a>
+            
+        </p>
+        <p class="m-0 white-blue-text">
+            Open source project: 
+            <a href="https://github.com/santivespa/resume" target="_blank">
+                source code on GitHub.
+            </a>
+
+        </p>
+    </div>
+ 
+</div>

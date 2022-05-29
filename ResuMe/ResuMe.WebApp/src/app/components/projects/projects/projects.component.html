@@ -1,0 +1,79 @@
+<div class="d-flex">
+    <h3 class="title">Projects</h3>
+    <a (click)="addProjectDialog()" class="default-anchor" *ngIf="currentUser">add project</a>
+</div>
+
+
+
+<div *ngFor="let p of projects;let last = last" class="section" [class.mb-20px]="!last">
+
+    <div class="d-flex justify-content-between">
+        <div>
+            <h2 class="project-name" matTooltip="Project Name" [matTooltipShowDelay]="300" [matTooltipHideDelay]="0">
+                {{p.projectName}}
+            </h2>
+
+        </div>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="currentUser">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="edit(p)" class="menu-item">
+                <mat-icon>edit </mat-icon>
+                <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="delete(p)" class="menu-item">
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+            </button>
+        </mat-menu>
+    </div>
+
+
+
+    <div class="row m-0 p-0 prop">
+
+        <div class="col-12 col-md-2 p-prop">Client </div>
+        <div class="col">{{p.client}}</div>
+
+    </div>
+    <div class="row m-0 p-0 prop">
+
+        <div class="col-12 col-md-2 p-prop">Dedication </div>
+        <div class="col">{{p.dedication}}</div>
+
+    </div>
+    <div class="row m-0 p-0 prop">
+
+        <div class="col-12 col-md-2 p-prop">Description </div>
+        <div class="col">{{p.description}}</div>
+
+    </div>
+    <div class="row m-0 p-0 prop">
+
+        <div class="col-12 col-md-2 p-prop">Business line </div>
+        <div class="col">{{p.businessLine}}</div>
+
+    </div>
+    <div class="row m-0 p-0 prop">
+
+        <div class="col-12 col-md-2 p-prop">Role </div>
+        <div class="col">{{p.role}}</div>
+
+    </div>
+    <div class="row m-0 p-0 prop">
+
+        <div class="col-12 col-md-2 p-prop">Tech stack </div>
+        <div class="col">{{p.techStack}}</div>
+
+    </div>
+    <div class="row m-0 p-0 prop">
+
+        <div class="col-12 col-md-2 p-prop">Location </div>
+        <div class="col">{{p.location}}</div>
+
+    </div>
+
+
+</div>

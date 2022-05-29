@@ -1,0 +1,46 @@
+<div class="row col-12 m-0 p-0 justify-content-center">
+    <div class="main-div justify-center col-12 col-md-8 col-lg-4">
+
+        <div class="form-div">
+            <div>
+                <h3 class="margin-bot-16">Register</h3>
+            </div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="w-100 justify-center">
+                    <input type="text" class="default-input" formControlName="email" placeholder="Email">
+                </div>
+                <div class="w-100 justify-center">
+                    <input type="text" class="default-input" formControlName="fullName" placeholder="Full Name">
+                </div>
+                <div class="w-100 justify-center">
+                    <input type="text" class="default-input" formControlName="userName" placeholder="User Name">
+                </div>
+
+                <div formGroupName="passwords">
+
+                    <div class="w-100 justify-center">
+                        <input [type]="form.value.showPasswords?'text':'password'" formControlName="password" placeholder="Password" class="default-input" name="password" autocomplete="false">
+                    </div>
+
+                    <div class="w-100 justify-center">
+                        <input [type]="form.value.showPasswords?'text':'password'" formControlName="confirmPassword" placeholder="Confirm Password" class="default-input m-0" name="confirmPassword" autocomplete="false">
+                    </div>
+
+                    <label class="text-danger" *ngIf="form.get('passwords.confirmPassword').touched && form.get('passwords.confirmPassword').errors?.passwordMismatch">
+                        confirm password does dot match 
+                    </label>
+
+                </div>
+
+                <div class="w-100 d-flex justify-end mt-16">
+                    <button class="default-btn m-0 " type="submit" [class.spinner]="loading" [disabled]="!form.valid || loading">Register</button>
+                </div>
+            </form>
+            <hr>
+            <div class="">
+                <a class="default-anchor" routerLink="/login">Login</a>
+
+            </div>
+        </div>
+    </div>
+</div>

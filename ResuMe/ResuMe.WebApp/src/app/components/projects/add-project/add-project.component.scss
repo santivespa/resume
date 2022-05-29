@@ -1,0 +1,13 @@
+.input {
+    margin-top: 16px;
+}
+
+.textarea {
+    min-height: 36px;
+}
+
+@media (max-width: 768px) {
+    .p-xs-0 {
+        padding: 0px !important;
+    }
+}

@@ -1,0 +1,19 @@
+.title {
+    font-size: 20px;
+    margin: 0px;
+}
+
+mat-list-option {
+    border-radius: 26px;
+    margin-top: 6px;
+    height: 40px !important;
+}
+
+::ng-deep.mat-ripple,
+.mat-list-item-ripple {
+    border-radius: 26px;
+}
+
+mat-icon {
+    color: #5f6368
+}

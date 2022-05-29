@@ -1,0 +1,50 @@
+//
+.header-div {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-end;
+    //border-radius: 40px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 16px 32px;
+    height: 112px;
+}
+
+//
+.header-div div {
+    height: 26px;
+    flex-direction: inherit;
+}
+
+.header-btn {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: poppins, Helvetica, sans-serif;
+    outline: 0;
+    font-size: 1em;
+    margin-left: 16px;
+}
+
+.header-btn:hover {
+    color: #d1e3ff
+}
+
+.header-btn>mat-icon {
+    margin-right: 4px;
+}
+
+@media (max-width: 768px) {
+   
+    .header-div {
+        margin-top: 0px;
+        border-radius: 0px;
+    }
+
+}
+
+.user-icon {
+    font-size: 28px;
+}

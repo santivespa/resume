@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>{{newCareerPath?'Add':'Edit'}} Career Path</h1>
+<form role="form" (ngSubmit)="onSubmit()">
+
+    <div mat-dialog-content>
+        <div>
+            <input type="text" placeholder="company" class="custom-input input" name="company" [(ngModel)]="careerPath.company">
+        </div>
+
+        <div>
+            <input type="text" placeholder="role" class="custom-input input" name="role" [(ngModel)]="careerPath.role">
+        </div>
+
+        <div>
+            <input type="text" placeholder="period" class="custom-input input" name="period" [(ngModel)]="careerPath.period">
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="justify-content-between">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button cdkFocusInitial type="submit" [disabled]="!valid() || loading" [class.spinner]="loading">{{newCareerPath?'Add':'Save'}}</button>
+    </div>
+
+
+</form>

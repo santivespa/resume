@@ -1,0 +1,43 @@
+<div class="section">
+    <div class="section-header">
+        <h3 class="section-title">Languages</h3>
+
+        <button mat-icon-button color="primary" (click)="addLanguage()" *ngIf="currentUser">
+            <mat-icon> add_circle_outline</mat-icon>
+        </button>
+
+    </div>
+
+    <table class="custom-table">
+
+        <tbody>
+            <tr *ngFor="let language of languages" (contextmenu)="onContextMenu($event, language)">
+                <td>
+                    {{language.languageName}}
+                </td>
+                <div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x" [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="menu">
+                </div>
+                <mat-menu #menu="matMenu">
+                    <ng-template matMenuContent let-item="item">
+                        <button mat-menu-item (click)="editLanguage(item)" class="menu-item">
+                            <mat-icon>edit</mat-icon>
+                            <span>Edit</span>
+                        </button>
+                        <button mat-menu-item (click)="deleteLanguage(item)" class="menu-item">
+                            <mat-icon>delete</mat-icon>
+                            <span>Delete</span>
+                        </button>
+                    </ng-template>
+
+                </mat-menu>
+
+
+                <td class="text-end">
+                    {{language.nivel | languagePipe}}
+                </td>
+
+
+            </tr>
+
+        </tbody>
+    </table>

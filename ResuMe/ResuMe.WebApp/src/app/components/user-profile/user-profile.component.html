@@ -1,0 +1,86 @@
+<div class="row col-12 m-0 p-0 justify-content-center">
+    
+    <div class="col-12 col-md-11 col-lg-8 justify-content-center p-0">
+        <app-nav></app-nav>
+    </div>
+   
+    <div class="main-div justify-center col-12 col-md-11 col-lg-8">
+
+        <div class="col-12 m-0 content" [class.content]="loading">
+
+            <div *ngIf="loading" class="col-12 m-0">
+                 <loader></loader> 
+            </div>
+
+            <div class="m-0 d-flex header" *ngIf="!loading">
+                <div>
+                    <img src="../../../assets/imgs/default-user.png" width="64" height="64" alt="" *ngIf="user && !user.profileImage">
+                    <img [src]="user.profileImage" width="64" height="64" class="profile-image" alt="" *ngIf="user && user.profileImage">
+                </div>
+
+                <div *ngIf="user" class="d-flex flex-column justify-content-center ps-3 ">
+
+                    <div class="d-flex header-subdiv">
+                        <div class="d-flex">
+                            <a class="linkedin-link d-flex align-items-center" *ngIf="user.linkedin" [href]="user.linkedin" target="_blank">
+                                <i class="fab fa-linkedin fa-lg"></i>
+                            </a>
+                            <span class="user-fullName cursor-pointer" routerLink="/{{user.userName}}">{{user.fullName}}</span>
+                        </div>
+
+                        <span class="user-years" *ngIf="user.years">{{user.years}} years old</span>
+
+                    </div>
+                    <div class="d-flex header-subdiv">
+
+                        <span class="user-role" *ngIf="user.role">{{user.role}}</span>
+                        <span class="user-years" *ngIf="user.yearsOfExperience && user.yearsOfExperience>0">{{user.yearsOfExperience}}
+                            {{user.yearsOfExperience>1?'years':'year'}}
+                            of experience
+                        </span>
+                    </div>
+                    <a class="user-email" href="mailto:{{user.email}}">{{user.email}}</a>
+                </div>
+
+                <nav class="subheader-nav">
+                    <button mat-icon-button class="nav-button" *ngIf="user && currentUser" (click)="TooglePrivate()" [matTooltip]="private?'Your profile is private':'Your profile is public'" [matTooltipShowDelay]="300" [matTooltipHideDelay]="0">
+                        <mat-icon *ngIf="private">lock</mat-icon>
+                        <mat-icon *ngIf="!private">lock_open</mat-icon>
+                    </button>
+
+                    <button mat-icon-button class="nav-button" [disabled]="loadingPDF" [class.spinner]="loadingPDF" (click)="generatePDF();" matTooltip="Download PDF" [matTooltipShowDelay]="300" [matTooltipHideDelay]="0">
+                        <mat-icon>picture_as_pdf</mat-icon>
+                    </button>
+                    
+                    <button mat-icon-button class="nav-button" (click)="copyProfileLink()" matTooltip="Copy profile link" [matTooltipShowDelay]="300" [matTooltipHideDelay]="0">
+                        <mat-icon>content_copy</mat-icon>
+                    </button>
+
+                    <button mat-icon-button [matMenuTriggerFor]="menu" class="nav-menu-mobile">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="TooglePrivate()" *ngIf="currentUser">
+                            <mat-icon *ngIf="private">lock</mat-icon>
+                            <mat-icon *ngIf="!private">lock_open</mat-icon>
+                          <span>Set profile {{private?'public': 'private'}}</span>
+                        </button>
+                        <button mat-menu-item [disabled]="loadingPDF" [class.spinner]="loadingPDF" (click)="generatePDF();">
+                            <mat-icon>picture_as_pdf</mat-icon>
+                            <span>Download PDF</span>
+                          </button>
+
+                        <button mat-menu-item (click)="copyProfileLink()">
+                          <mat-icon>content_copy</mat-icon>
+                          <span>Copy profile link</span>
+                        </button>
+                    </mat-menu>
+                </nav>
+            </div>
+
+            <div class="body" *ngIf="!loading && user">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

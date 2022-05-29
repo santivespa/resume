@@ -1,0 +1,69 @@
+.header {
+    border-bottom: 2px solid #eeeeee;
+    margin-bottom: 12px !important;
+    padding: 0px 12px 12px 12px;
+}
+
+.fading {
+    animation: fading 1.5s infinite;
+    -webkit-animation: fading 1.5s infinite;
+    border-radius: 25px;
+}
+
+.fading-user-img {
+    background-color: #E2E2E2;
+    width: 64px;
+    height: 64px;
+    border-radius: 50% !important;
+}
+
+.fading-user-fullName {
+    background-color: #E2E2E2;
+    height: 18px;
+    width: 184px;
+}
+
+.fading-user-email {
+    background-color: #E2E2E2;
+    height: 18px;
+    width: 216px;
+}
+
+.fading-section-btn {
+    width: 80px;
+    height: 32px;
+    margin-left: 8px;
+}
+
+.fading-section-btn2 {
+    width: 108px;
+    height: 32px;
+    margin-left: 8px;
+}
+
+.fading-section {
+    height: 150px;
+    margin-bottom: 16px;
+}
+
+.fading-section2 {
+    height: 100px;
+    margin-bottom: 16px;
+}
+
+.fading-section3 {
+    height: 200px;
+    margin-bottom: 16px;
+}
+
+@keyframes fading {
+    0% {
+        background-color: #B9BABC;
+    }
+    50% {
+        background-color: #EAEAEA;
+    }
+    100% {
+        background-color: #B9BABC;
+    }
+}
